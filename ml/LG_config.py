@@ -1,2 +1,2 @@
 max_features = 2500
-max_iter = 500
+max_iter = 50

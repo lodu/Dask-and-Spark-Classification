@@ -1,7 +1,7 @@
 import pandas as pd
 from pymongo import MongoClient
 
-from config import password, user, port
+from config import password, port, user
 
 
 def _csv_to_df(file_name):
