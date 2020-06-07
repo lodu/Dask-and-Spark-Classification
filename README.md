@@ -7,4 +7,4 @@ Dataset: https://www.kaggle.com/jiashenliu/515k-hotel-reviews-data-in-europe
 
 Shell script I personally use to run Docker-container of MongoDB and mount a volume on in my home directory is included (change username, password and user).
 Add alias to `.bashrc`: `alias mongodb='sh mongodb.sh'`
-and start with `mongondb start` and stop with `mongodb stop`
+and start with `mongodb start` and stop with `mongodb stop`
