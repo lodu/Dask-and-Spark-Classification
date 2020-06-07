@@ -1,3 +1,8 @@
+.vscode/
+dask-worker-space/
+*.csv
+config.*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
