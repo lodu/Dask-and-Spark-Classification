@@ -136,8 +136,14 @@ mongo_client = MongoClient(
 
 # Collection with a lot of dataset columns
 db = mongo_client.reviews
-db.long.insert_many(long_df.to_dict("records"))
+if db.long.count() < 100:
+    db.long.insert_many(long_df.to_dict("records"))
+else:
+    print(f"Didn't insert into long because already size: {int(db.long.count())}")
 
 # Collection with only review and sentiment (label)
 short_df = long_df.loc[:, ["Review", "Sentiment"]]
-db.short.insert_many(short_df.to_dict("records"))
+if db.short.count() < 100:
+    db.short.insert_many(short_df.to_dict("records"))
+else:
+    print(f"Didn't insert into short because already size: {int(db.long.count())}")
