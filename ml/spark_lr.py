@@ -14,6 +14,7 @@ from pyspark.sql.utils import AnalysisException
 from config import password, user
 from LG_config import max_iter
 import yaml
+
 findspark.init()
 try:
     # create SparkContext on all CPUs available: in my case I have 4 CPUs on my laptop
@@ -87,10 +88,7 @@ roc_auc = evaluator.evaluate(predictions)
 print(f"{roc_auc:.3f}")
 
 
-data = {
-    "auc" : int(roc_auc * 1000),
-    "timing" : timingsss
-}
+data = {"auc": int(roc_auc * 1000), "timing": timingsss}
 
-with open(r'spark_stats.yaml', 'w') as file:
+with open(r"spark_stats.yaml", "w") as file:
     yaml.dump(data, file)

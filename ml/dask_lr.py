@@ -24,6 +24,7 @@ df = pd.DataFrame(source)
 df.head()
 client = None
 
+
 def main():
     client = Client()
     X_train, X_test, y_train, y_test = train_test_split(
@@ -53,14 +54,11 @@ def main():
         auc = roc_auc_score(y_test, y_pred)
         print(f"{auc:.3f}")
 
-        data =  {
-        "auc" : int(auc * 1000),
-        "timing" : timingss
-        }
-        with open(r'dask_stats.yaml', 'w') as file:
+        data = {"auc": int(auc * 1000), "timing": timingss}
+        with open(r"dask_stats.yaml", "w") as file:
             yaml.dump(data, file)
+
+
 # Otherwise
 if __name__ == "__main__":
-        main()
-        
-        
+    main()
